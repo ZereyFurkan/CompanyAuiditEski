@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CompanyAuidit.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,7 +22,8 @@ namespace CompanyAuidit
         {
             services.AddControllersWithViews();
             services.AddMvc();
-            var connection = @"Server=94.73.145.8;Database=u9410626_db132;User Id=u9410626_user132;Password=SNdv40M2YYqo00Y;";
+            var connection =
+                @"Server=94.73.145.8;Database=u9410626_db132;User Id=u9410626_user132;Password=SNdv40M2YYqo00Y;";
             services.AddDbContext<AccessContext>(options => options.UseSqlServer(connection));
         }
 
@@ -44,6 +40,7 @@ namespace CompanyAuidit
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -54,8 +51,8 @@ namespace CompanyAuidit
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

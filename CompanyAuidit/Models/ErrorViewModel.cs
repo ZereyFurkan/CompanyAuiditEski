@@ -1,5 +1,3 @@
-using System;
-
 namespace CompanyAuidit.Models
 {
     public class ErrorViewModel
