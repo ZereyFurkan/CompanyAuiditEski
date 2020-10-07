@@ -1,0 +1,15 @@
+﻿@model List<CompanyAuidit.Entities.User>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+@foreach (var item in Model)
+{
+    <p>@item.FirstName</p>
+    <p>@item.LastName</p>
+    <p>@item.Mission</p>
+    <p>@item.Department</p>
+}
