@@ -6,21 +6,18 @@
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width"/>
-    <title>SaveCustomer</title>
-</head>
+<h3 class="alert alert-success">Eleman Ekle</h3>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
 <body>
-<form asp-controller="User" asp-action="SaveUser">
-    Id : <input asp-for="users.Id"/> <br/>
-    İsim : <input asp-for="users.FirstName"/><br/>
-    Soyisim : <input asp-for="users.LastName"/><br/>
-    Görev : <input asp-for="users.Mission"/><br/>
-    Departman : <input asp-for="users.Department"/><br/>
+    <form asp-controller="User" asp-action="SaveUser">
+        Id : <input asp-for="users.Id" /> <br />
+        İsim : <input asp-for="users.FirstName" /><br />
+        Soyisim : <input asp-for="users.LastName" /><br />
+        Görev : <input asp-for="users.Mission" /><br />
+        Birim : <input asp-for="users.Department" /><br />
 
-    <button type="submit">Kaydet</button>
+        <button type="submit">Kaydet</button>
 
-</form>
+    </form>
 </body>
-</html>

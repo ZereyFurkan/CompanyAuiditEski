@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CompanyAuidit.Contexts;
 using CompanyAuidit.Entities;
 using CompanyAuidit.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -26,5 +27,12 @@ namespace CompanyAuidit.Controllers
         {
             return View();
         }
+
+        private readonly AccessContext _context;
+        public UserController(AccessContext context)
+        {
+            _context = context;
+        }
     }
+    
 }
