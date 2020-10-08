@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyAuidit", "CompanyAuidit\CompanyAuidit.csproj", "{FE01029B-B759-4796-9193-FCE73958B056}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPNetCoreIntro", "..\..\JewerlySave\JewerlySave\ASPNetCoreIntro.csproj", "{784E90AB-AE2D-4D82-84A1-CA438D1A74B3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{FE01029B-B759-4796-9193-FCE73958B056}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE01029B-B759-4796-9193-FCE73958B056}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE01029B-B759-4796-9193-FCE73958B056}.Release|Any CPU.Build.0 = Release|Any CPU
-		{784E90AB-AE2D-4D82-84A1-CA438D1A74B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{784E90AB-AE2D-4D82-84A1-CA438D1A74B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{784E90AB-AE2D-4D82-84A1-CA438D1A74B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{784E90AB-AE2D-4D82-84A1-CA438D1A74B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
