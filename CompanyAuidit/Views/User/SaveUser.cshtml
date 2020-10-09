@@ -1,23 +1,33 @@
 ﻿@model SaveUserViewModel
 @{
     ViewData["Title"] = "SaveUser";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
 <!DOCTYPE html>
 
-<h3 class="alert alert-success">Eleman Ekle</h3>
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
-<body>
-    <form asp-controller="User" asp-action="SaveUser">
-        Id : <input asp-for="users.Id" /> <br />
-        İsim : <input asp-for="users.FirstName" /><br />
-        Soyisim : <input asp-for="users.LastName" /><br />
-        Görev : <input asp-for="users.Mission" /><br />
-        Birim : <input asp-for="users.Department" /><br />
+<link rel="stylesheet" href="~/css/PrivateCss.css" />
 
-        <button type="submit">Kaydet</button>
-
-    </form>
-</body>
+<div class="box">
+    <form>
+        <span class="text-center">Eleman Kaydı</span>
+        <div class="input-container">
+            <input asp-for="users.FirstName" required="" />
+            <label>İsim</label>
+        </div>
+        <div class="input-container">
+            <input asp-for="users.LastName" required="" />
+            <label>Soyisim</label>
+        </div>
+        <div class="input-container">
+            <input asp-for="users.Department" required="" />
+            <label>Birim</label>
+        </div>
+        <div class="input-container">
+            <input asp-for="users.Mission" required="" />
+            <label>Görev</label>
+        </div>
+        <button type="button" class="btn">submit</button>
+    </form>	
+</div>
