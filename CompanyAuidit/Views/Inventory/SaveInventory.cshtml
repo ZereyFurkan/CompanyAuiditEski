@@ -1,0 +1,21 @@
+﻿@model SaveInventoryViewModel
+@{
+    ViewData["Title"] = "SaveInventory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<h3 class="alert alert-success">Envanter Ekle</h3>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<body>
+<form asp-controller="Inventory" asp-action="SaveInventory">
+    İsim : <input asp-for="inventories.Name" /><br />
+    Durum : <input asp-for="inventories.Status" /><br />
+    Fiyat : <input asp-for="inventories.Cost" /><br />
+
+    <button type="submit">Kaydet</button>
+
+</form>
+</body>

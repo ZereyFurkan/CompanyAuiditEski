@@ -10,7 +10,7 @@ namespace CompanyAuidit.Contexts
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Inventoriy> Inventories { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
         public DbSet<UserAndInventoriyRelationship> UserAndInventoriyRelationship { get; set; }
     }
 }

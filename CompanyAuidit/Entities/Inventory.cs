@@ -1,6 +1,6 @@
 ﻿namespace CompanyAuidit.Entities
 {
-    public class Inventoriy
+    public class Inventory
     {
         public int Id { get; set; }
         public string Name { get; set; }
