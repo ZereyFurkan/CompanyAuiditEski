@@ -1,4 +1,6 @@
-﻿using CompanyAuidit.Entities;
+﻿using System.Collections.Generic;
+using CompanyAuidit.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CompanyAuidit.Models
 {
