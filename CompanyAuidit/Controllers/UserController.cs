@@ -11,6 +11,11 @@ namespace CompanyAuidit.Controllers
 {
     public class UserController : Controller
     {
+        private readonly AccessContext _context;
+        public UserController(AccessContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -19,20 +24,28 @@ namespace CompanyAuidit.Controllers
         [HttpGet]
         public IActionResult SaveUser()
         {
-            return View(new SaveUserViewModel());
+            return View(new UserViewModel());
         }
 
         [HttpPost]
-        public IActionResult SaveUser(User users)
+        public IActionResult SaveUser(UserViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                User user=new User()
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Department = model.Department,
+                    Mission = model.Mission
+                };
+
+                _context.Users.Add(user);
+                _context.SaveChanges();
+            }
             return View();
         }
 
-        private readonly AccessContext _context;
-        public UserController(AccessContext context)
-        {
-            _context = context;
-        }
     }
     
 }
