@@ -52,7 +52,7 @@ namespace CompanyAuidit.Controllers
             var result = _context.UserAndInventoriyRelationship.FirstOrDefault(x => x.UserId == userId && x.InventoriyId == inventoriyId);
             _context.UserAndInventoriyRelationship.Remove(result);
             _context.SaveChanges();
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("UserList","User");
         }
 
         public IActionResult CreateItem(int userId, int itemId)
@@ -60,7 +60,7 @@ namespace CompanyAuidit.Controllers
             var result = new UserAndInventoriyRelationship { UserId = userId, InventoriyId = itemId };
             _context.UserAndInventoriyRelationship.Add(result);
             _context.SaveChanges();
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("UserList", "User");
         }
 
     }

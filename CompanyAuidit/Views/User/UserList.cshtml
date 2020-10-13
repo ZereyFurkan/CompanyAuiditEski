@@ -5,7 +5,7 @@
 
 }
 
-<h3>Kullanıcılar</h3>
+<h3>Kullanıcı Listesi</h3>
 <hr/>
 <table class="table">
     <tr>
@@ -13,21 +13,25 @@
         <th>Soyadı</th>
         <th>Birim</th>
         <th>Görev</th>
-        <th><a class="btn btn-danger" asp-controller="User" asp-action="SaveUser">Kullanıcı Ekle</a></th>
-        
+        <th></th>
+        <th><a class="btn btn-success" asp-controller="User" asp-action="SaveUser">Kullanıcı Ekle</a></th>
+
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.FirstName</td>
-            <td>@item.LastName</td>
-            <td>@item.Department</td>
-            <td>@item.Mission</td>
-            <td>
-                <a class="btn btn-danger" asp-action="UserDelete" asp-route-id="@item.Id">Sil</a> 
-            </td>
-        </tr>
+<tr>
+    <td>@item.FirstName</td>
+    <td>@item.LastName</td>
+    <td>@item.Department</td>
+    <td>@item.Mission</td>
+    <td>
+        <a class="btn btn-danger" asp-action="UserDelete" asp-route-id="@item.Id">Sil</a>
+    </td>
+    <td>
+        <a class="btn btn-primary" asp-controller="Relation" asp-action="Inventory" asp-route-id="@item.Id">Eşyalar</a>
+    </td>
+</tr>
     }
 
 </table>
