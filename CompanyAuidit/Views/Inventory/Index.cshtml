@@ -1,8 +1,29 @@
-﻿@model object
+﻿@using System.Collections.Immutable
+@model InventoryViewModel
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+@*<h2>EŞYA LİSTESİ</h2>
+<table>
+
+    @foreach (var inventory in Model.Inventories)
+    {
+        <tr>
+          
+            <td>@inventory.Name </td>
+            <td>@inventory.Cost </td>
+            <td>@inventory.Status </td>
+            <td>
+                <form asp-action="InventoryDelete" method="post">
+
+                    <input type="hidden" name="inventoriyId" value="@inventory.Id" />
+                    <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                </form>
+            </td>
+        </tr>
+    }
+
+</table>*@

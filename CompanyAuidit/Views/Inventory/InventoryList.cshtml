@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CompanyAuidit.Entities.Inventory>
+@{
+    ViewData["Title"] = "RelationIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h3>Envanter Listesi</h3>
+<hr />
+<table class="table">
+    <tr>
+        <th>Adı</th>
+        <th>Durumu</th>
+        <th>Değeri</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Status</td>
+            <td>@item.Cost</td>
+            <td>
+                <a class="btn btn-danger" asp-action="InventoryDelete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+    }
+
+</table>

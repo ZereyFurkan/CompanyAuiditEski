@@ -19,7 +19,13 @@ namespace CompanyAuidit.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var inventories = _context.Inventories.ToList();
+            var model = new InventoryViewModel
+            {
+                Inventories = inventories
+            };
+
+            return View(model);
         }
 
         [HttpGet]
@@ -46,6 +52,37 @@ namespace CompanyAuidit.Controllers
                 _context.SaveChanges();
             }
             return View();
+        }
+
+        //public IActionResult InventoryDelete(int id)
+        //{
+        //    var result = _context.Inventories.FirstOrDefault(x => x.Id == id);
+        //    _context.Inventories.Remove(result);
+        //    _context.SaveChanges();
+        //    return RedirectToAction("Index", "Inventory");
+        //}
+
+        public IActionResult InventoryList()
+        {
+            var result = _context.Inventories.ToList();
+            return View(result);
+        }
+
+        public IActionResult InventoryDelete(int id)
+        {
+
+            var result = _context.Inventories.FirstOrDefault(x => x.Id == id);
+            _context.Inventories.Remove(result);
+
+
+            var Inventories = _context.UserAndInventoriyRelationship.Where(x => x.InventoriyId == id).ToList();
+            foreach (var item in Inventories)
+            {
+                _context.UserAndInventoriyRelationship.Remove(item);
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction(nameof(InventoryList));
         }
 
     }
