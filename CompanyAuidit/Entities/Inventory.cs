@@ -9,6 +9,6 @@ namespace CompanyAuidit.Entities
         public string Status { get; set; }
         public decimal Cost { get; set; }
 
-        public List<UserAndInventoriyRelationship> userAndInventoriyRelationships { get; set; }
+        public List<UserAndInventoriyRelationship> UserAndInventoriyRelationships { get; set; }
     }
 }
