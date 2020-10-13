@@ -1,4 +1,4 @@
-﻿@model SaveInventoryViewModel
+﻿@model InventoryViewModel
 @{
     ViewData["Title"] = "SaveInventory";
     Layout = null;
@@ -10,21 +10,22 @@
 <link rel="stylesheet" href="~/css/PrivateCss.css" />
 
 <div class="box">
-    <form>
-        <span class="text-center">Envanter Kaydı</span>
+    <form asp-controller="Inventory" asp-action="SaveInventory" method="post">
+        <span class="text-center">Eleman Kaydı</span>
         <div class="input-container">
-            <input asp-for="inventories.Name" required="" />
-            <label>İsim</label>
+            <input asp-for="@Model.Name" required="" />
+            <label>Adı</label>
         </div>
         <div class="input-container">
-            <input asp-for="inventories.Status" required="" />
+            <input asp-for="@Model.Status" required=""  />
             <label>Durum</label>
         </div>
         <div class="input-container">
-            <input asp-for="inventories.Cost" required="" />
-            <label>Birim</label>
+            <input asp-for="@Model.Cost" required="" />
+            <label>Değer</label>
         </div>
-
-        <button type="button" class="btn">submit</button>
+       
+        <button type="submit" class="btn">Kaydet</button>
+        <button class="btn" href="/Home/Index">Ana Sayfa</button>
     </form>
 </div>
