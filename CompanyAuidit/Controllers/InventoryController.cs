@@ -43,8 +43,8 @@ namespace CompanyAuidit.Controllers
                 Inventory inventory = new Inventory()
                 {
                     Name = model.Name,
-                   Status =model.Status,
-                   Cost = model.Cost
+                    Status = model.Status,
+                    Cost = model.Cost
                    
                 };
 
@@ -64,7 +64,15 @@ namespace CompanyAuidit.Controllers
 
         public IActionResult InventoryList()
         {
-            var result = _context.Inventories.ToList();
+            var users = _context.Users.ToList();
+            var items = _context.Inventories.ToList();
+
+            var result = new RelationListViewModel
+            {
+                Inventory = items,
+                Users = users       
+            };
+
             return View(result);
         }
 
@@ -75,13 +83,11 @@ namespace CompanyAuidit.Controllers
             _context.Inventories.Remove(result);
 
 
-            var Inventories = _context.UserAndInventoriyRelationship.Where(x => x.InventoriyId == id).ToList();
-            foreach (var item in Inventories)
-            {
-                _context.UserAndInventoriyRelationship.Remove(item);
-            }
-
-            _context.SaveChanges();
+            var inventories = _context.UserAndInventoriyRelationship.Where(x => x.InventoriyId == id).ToList();
+   
+             _context.UserAndInventoriyRelationship.RemoveRange(inventories);
+             _context.SaveChanges();
+           
             return RedirectToAction(nameof(InventoryList));
         }
 

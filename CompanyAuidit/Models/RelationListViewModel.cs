@@ -11,5 +11,6 @@ namespace CompanyAuidit.Models
         public List<Inventory> Inventory { get; set; }
         public User User { get; set; }
         public List<Inventory> Items { get; set; }
+        public List<User> Users { get; set; }
     }
 }

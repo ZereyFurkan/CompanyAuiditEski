@@ -62,13 +62,11 @@ namespace CompanyAuidit.Controllers
             _context.Users.Remove(result);
 
 
-            var Inventories = _context.UserAndInventoriyRelationship.Where(x => x.UserId == id).ToList();
-            foreach (var item in Inventories)
-            {
-                _context.UserAndInventoriyRelationship.Remove(item);
-            }
-
+            var inventories = _context.UserAndInventoriyRelationship.Where(x => x.UserId == id).ToList();
+            
+            _context.UserAndInventoriyRelationship.RemoveRange(inventories);
             _context.SaveChanges();
+
             return RedirectToAction(nameof(UserList));
         }
     }
