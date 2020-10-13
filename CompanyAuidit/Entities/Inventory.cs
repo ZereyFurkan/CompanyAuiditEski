@@ -1,4 +1,6 @@
-﻿namespace CompanyAuidit.Entities
+﻿using System.Collections.Generic;
+
+namespace CompanyAuidit.Entities
 {
     public class Inventory
     {
@@ -7,6 +9,6 @@
         public string Status { get; set; }
         public decimal Cost { get; set; }
 
-        public List<UserAndInventoriyRelationship> userAndInventoriyRelationships { get; set; }
+        public List<UserAndInventoriyRelationship> UserAndInventoriyRelationships { get; set; }
     }
 }
