@@ -14,7 +14,7 @@
 
 
     <form asp-controller="Inventory" asp-action="SaveInventory" method="post">
-        <span class="text-center">Eleman Kaydı</span>
+        <h3>Eşya Ekle</h3>
         <div class="input-container">
             <input asp-for="@Model.Name" required="" placeholder="Adı"/>
 
@@ -28,7 +28,7 @@
 
         </div>
 
-        <button type="submit" class="btn">Kaydet</button>
-        <button class="btn" href="/Home/Index">Ana Sayfa</button>
+        <button type="submit" class="btn btn-danger">Kaydet</button>
+        <button class="btn btn-danger" href="/Home/Index">Ana Sayfa</button>
     </form>
 </div>
