@@ -1,4 +1,6 @@
-﻿namespace CompanyAuidit.Entities
+﻿using System.Collections.Generic;
+
+namespace CompanyAuidit.Entities
 {
     public class Inventory
     {
