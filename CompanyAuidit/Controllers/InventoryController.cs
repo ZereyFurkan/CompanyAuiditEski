@@ -51,7 +51,7 @@ namespace CompanyAuidit.Controllers
                 _context.Inventories.Add(inventory);
                 _context.SaveChanges();
             }
-            return View();
+            return RedirectToAction(nameof(SaveInventory));
         }
 
         //public IActionResult InventoryDelete(int id)

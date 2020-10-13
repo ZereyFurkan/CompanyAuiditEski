@@ -46,7 +46,7 @@ namespace CompanyAuidit.Controllers
                 _context.Users.Add(user);
                 _context.SaveChanges();
             }
-            return View();
+            return RedirectToAction(nameof(SaveUser));
         }
 
         public IActionResult UserList()
