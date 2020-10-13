@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using CompanyAuidit.Contexts;
 using CompanyAuidit.Entities;
@@ -47,6 +49,28 @@ namespace CompanyAuidit.Controllers
             return View();
         }
 
+        public IActionResult UserList()
+        {
+            var result = _context.Users.ToList();
+            return View(result);
+        }
+
+        public IActionResult UserDelete(int id)
+        {
+
+            var result = _context.Users.FirstOrDefault(x=>x.Id==id);
+            _context.Users.Remove(result);
+
+
+            var Inventories = _context.UserAndInventoriyRelationship.Where(x => x.UserId == id).ToList();
+            foreach (var item in Inventories)
+            {
+                _context.UserAndInventoriyRelationship.Remove(item);
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction(nameof(UserList));
+        }
     }
     
 }

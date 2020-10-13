@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CompanyAuidit.Entities.User>
+@{
+    ViewData["Title"] = "RelationIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h3>Kullanıcılar</h3>
+<hr/>
+<table class="table">
+    <tr>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Birim</th>
+        <th>Görev</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.Department</td>
+            <td>@item.Mission</td>
+            <td>
+                <a class="btn btn-danger" asp-action="UserDelete" asp-route-id="@item.Id">Sil</a> 
+            </td>
+        </tr>
+    }
+
+</table>
