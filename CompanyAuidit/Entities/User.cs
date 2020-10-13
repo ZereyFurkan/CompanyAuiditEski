@@ -1,4 +1,6 @@
-﻿namespace CompanyAuidit.Entities
+﻿using System.Collections.Generic;
+
+namespace CompanyAuidit.Entities
 {
     public class User
     {
@@ -7,5 +9,7 @@
         public string LastName { get; set; }
         public string Department { get; set; }
         public string Mission { get; set; }
+
+        public virtual ICollection<UserAndInventoriyRelationship> UserAndInventoriyRelationships { get; set; }
     }
 }

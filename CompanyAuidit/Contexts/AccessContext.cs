@@ -7,8 +7,8 @@ namespace CompanyAuidit.Contexts
     {
         public AccessContext(DbContextOptions<AccessContext> options) : base(options)
         {
-        }
 
+        }
         public DbSet<User> Users { get; set; }
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<UserAndInventoriyRelationship> UserAndInventoriyRelationship { get; set; }

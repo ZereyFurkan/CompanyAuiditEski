@@ -1,0 +1,53 @@
+﻿@model RelationListViewModel
+@{
+    ViewData["Title"] = "RelationIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h1>@Model.User.FirstName  @Model.User.LastName</h1>
+<br>
+<table class="table">
+    <tr>
+        <th>Eşya</th>
+        <th>Satatü</th>
+        <th>Değeri</th>
+        <th></th>
+        <th>
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Eşya Ekle
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    @foreach (var item in Model.Items)
+                    {
+                        <a class="dropdown-item" asp-action="CreateItem" asp-route-userId="@Model.User.Id" asp-route-itemId="@item.Id">@item.Name</a>
+                    }
+                </div>
+            </div>
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Inventory)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Status</td>
+            <td>@item.Cost</td>
+            <td>
+                <form asp-action="InventoryDelete" method="post">
+                    <input type="hidden" name="userId" value="@Model.User.Id" />
+                    <input type="hidden" name="inventoriyId" value="@item.Id" />
+                    <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                </form>
+            </td>
+            <th></th>
+        </tr>
+    }
+
+</table>
+
+
+
+
+

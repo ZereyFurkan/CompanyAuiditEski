@@ -21,10 +21,8 @@ namespace CompanyAuidit
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddMvc();
-            var connection =
-                @"Server=94.73.145.8;Database=u9410626_db132;User Id=u9410626_user132;Password=SNdv40M2YYqo00Y;";
-            services.AddDbContext<AccessContext>(options => options.UseSqlServer(connection));
+
+            services.AddDbContext<AccessContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,19 +32,10 @@ namespace CompanyAuidit
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
+         
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
