@@ -12,6 +12,11 @@ namespace CompanyAuidit.Controllers
 {
     public class InventoryController : Controller
     {
+        private readonly AccessContext _context;
+        public InventoryController(AccessContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -20,21 +25,29 @@ namespace CompanyAuidit.Controllers
         [HttpGet]
         public IActionResult SaveInventory()
         {
-            return View(new SaveInventoryViewModel());
+            return View(new InventoryViewModel());
         }
 
+
         [HttpPost]
-        public IActionResult SaveInventory(Inventory inventories)
+        public IActionResult SaveInventory(InventoryViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                Inventory inventory = new Inventory()
+                {
+                    Name = model.Name,
+                   Status =model.Status,
+                   Cost = model.Cost
+                   
+                };
+
+                _context.Inventories.Add(inventory);
+                _context.SaveChanges();
+            }
             return View();
         }
 
-        private readonly AccessContext _context;
-        public InventoryController(AccessContext context)
-        {
-            _context = context;
-        }
-
-        //testtt
     }
+
 }
