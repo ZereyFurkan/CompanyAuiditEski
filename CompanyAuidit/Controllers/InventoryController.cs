@@ -91,6 +91,43 @@ namespace CompanyAuidit.Controllers
             return RedirectToAction(nameof(InventoryList));
         }
 
+        [HttpPost]
+        public IActionResult UpdateInventory(InventoryViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var inventory = new Inventory()
+                {
+                    Name = model.Name,
+                    Status = model.Status,
+                    Cost = model.Cost,
+                    Id = model.Id
+
+                };
+
+                _context.Inventories.Update
+                    (inventory);
+                _context.SaveChanges();
+            }
+            //return View();
+            return RedirectToAction(nameof(InventoryList));
+        }
+
+        [HttpGet]
+        public IActionResult UpdateInventory(int id)
+        {
+            var result = _context.Inventories.FirstOrDefault(x => x.Id == id);
+            var inventory = new InventoryViewModel();
+            if (ModelState.IsValid)
+            {
+                inventory.Id = result.Id;
+                inventory.Name = result.Name;
+                inventory.Status = result.Status;
+                inventory.Cost = result.Cost;
+            }
+            return View(inventory);
+        }
+
     }
 
 }

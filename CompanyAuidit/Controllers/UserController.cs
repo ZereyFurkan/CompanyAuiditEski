@@ -69,6 +69,45 @@ namespace CompanyAuidit.Controllers
 
             return RedirectToAction(nameof(UserList));
         }
+        [HttpPost]
+        public IActionResult UserUpdate(UserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new User()
+                {
+                    Id = model.Id,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Department = model.Department,
+                    Mission = model.Mission
+
+                };
+
+                _context.Users.Update(user);
+                _context.SaveChanges();
+            }
+            //return View();
+            return RedirectToAction(nameof(UserList));
+        }
+
+        [HttpGet]
+        public IActionResult UserUpdate(int id)
+        {
+            var result = _context.Users.FirstOrDefault(x => x.Id == id);
+
+            var user = new UserViewModel();
+
+            if (ModelState.IsValid)
+            {
+                user.Id = result.Id;
+                user.FirstName = result.FirstName;
+                user.LastName = result.LastName;
+                user.Department = result.Department;
+                user.Mission = result.Mission;
+            }
+            return View(user);
+        }
     }
     
 }

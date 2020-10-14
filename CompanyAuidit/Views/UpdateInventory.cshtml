@@ -1,0 +1,36 @@
+﻿@model InventoryViewModel
+@{
+    ViewData["Title"] = "UpdateInventory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+<div class="box">
+
+
+
+    <form asp-controller="Inventory" asp-action="UpdateInventory" method="post">
+        <h3>Eşya Güncelle</h3>
+        <div class="input-container">
+            <input asp-for="@Model.Name" required="" value="@Model.Name" placeholder="Adı" />
+
+        </div>
+        <div class="input-container">
+            <input asp-for="@Model.Status" required="" placeholder="Durum" />
+
+        </div>
+        <div class="input-container">
+            <input asp-for="@Model.Cost" required="" placeholder="Değer" />
+
+
+        </div>
+
+        <button type="submit" class="btn btn-success">Kaydet</button>
+        <input type="submit" id="send" name="send" value="Kaydet ve Geri Dön" class="btn btn-warning" />
+        <button class="btn btn-danger" href="/Home/Index">Vazgeç</button>
+    </form>
+</div>

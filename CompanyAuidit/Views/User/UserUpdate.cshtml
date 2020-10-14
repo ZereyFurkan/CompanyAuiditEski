@@ -1,0 +1,38 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "UpdateUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+<div class="box">
+
+
+
+    <form asp-controller="User" asp-action="UserUpdate" method="post">
+        <h3>Kullanıcı Güncelle</h3>
+        <div class="input-container">
+            <input asp-for="@Model.FirstName" required="" placeholder="Adı" />
+
+        </div>
+        <div class="input-container">
+            <input asp-for="@Model.LastName" required="" placeholder="Soyadı" />
+
+        </div>
+        <div class="input-container">
+            <input asp-for="@Model.Department" required="" placeholder="Bölümü" />
+        </div>
+        <div class="input-container">
+            <input asp-for="@Model.Mission" required="" placeholder="Görevi" />
+        </div>
+       
+
+        <button type="submit" class="btn btn-success">Kaydet</button>
+        <input type="submit" id="send" name="send" value="Kaydet ve Geri Dön" class="btn btn-warning" />
+        <button class="btn btn-danger" href="/Home/Index">Vazgeç</button>
+    </form>
+</div>
