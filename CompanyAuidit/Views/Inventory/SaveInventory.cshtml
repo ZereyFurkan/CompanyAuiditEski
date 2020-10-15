@@ -4,31 +4,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Scripts
+{
+    <script>
+        function showAlert() {
+            alert("Eşya başarıyla eklandi");
+        }
+    </script>
+}
+
 <!DOCTYPE html>
 
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
 <div class="box">
-  
+
 
 
     <form asp-controller="Inventory" asp-action="SaveInventory" method="post">
         <h3>Eşya Ekle</h3>
         <div class="input-container">
-            <input asp-for="@Model.Name" required="" placeholder="Adı"/>
+            <input asp-for="@Model.Name" required="" placeholder="Adı" />
 
         </div>
         <div class="input-container">
-            <input asp-for="@Model.Status" required="" placeholder="Durum"/>
+            <input asp-for="@Model.Status" required="" placeholder="Durum" />
 
         </div>
         <div class="input-container">
-            <input asp-for="@Model.Cost" required="" placeholder="Değer"/>
+            <input asp-for="@Model.Cost" required="" placeholder="Değer" />
 
         </div>
 
-        <button type="submit" class="btn btn-danger">Kaydet</button>
+        <button type="submit" class="btn btn-danger" onclick="showAlert();">Kaydet</button>
         <button class="btn btn-danger" href="/Home/Index">Ana Sayfa</button>
     </form>
 </div>

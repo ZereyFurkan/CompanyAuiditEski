@@ -4,6 +4,14 @@
 
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts
+{
+    <script>
+        function showAlert() {
+            alert("Kullanıcı başarıyla eklandi");
+        }
+    </script>
+}
 
 <!DOCTYPE html>
 
@@ -14,26 +22,26 @@
     <form asp-controller="User" asp-action="SaveUser" method="post">
         <h3>Eleman Ekle</h3>
         <div class="input-container">
-            
+
             <input asp-for="@Model.FirstName" required="" placeholder="İsim" />
 
         </div>
         <div class="input-container">
-            
+
             <input asp-for="@Model.LastName" required="" placeholder="Soyisim" />
 
         </div>
         <div class="input-container">
-            
-            <input asp-for="@Model.Department" required="" placeholder="Birim"/>
+
+            <input asp-for="@Model.Department" required="" placeholder="Birim" />
 
         </div>
         <div class="input-container">
-            
+
             <input asp-for="@Model.Mission" required="" placeholder="Görev" />
 
         </div>
-        <button type="submit" class="btn btn-danger">Kaydet</button>
+        <button type="submit" class="btn btn-danger" onclick="showAlert();">Kaydet</button>
         <button class="btn btn-danger" href="/Home/Index">Ana Sayfa</button>
     </form>
 </div>
