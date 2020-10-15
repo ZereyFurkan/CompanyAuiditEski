@@ -4,40 +4,70 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<!DOCTYPE html>
+
 @section Scripts
 {
     <script>
         function showAlert() {
-            alert("Eşya başarıyla eklandi");
+            alert("Eşya başarıyla eklendi.");
         }
     </script>
 }
 
-<!DOCTYPE html>
+<link rel="stylesheet" href="~/css/cssroot.css" />
 
-
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-
-<div class="box">
+@*<div class="box">
 
 
 
-    <form asp-controller="Inventory" asp-action="SaveInventory" method="post">
-        <h3>Eşya Ekle</h3>
-        <div class="input-container">
-            <input asp-for="@Model.Name" required="" placeholder="Adı" />
+        <form asp-controller="Inventory" asp-action="SaveInventory" method="post">
+            <h3>Eşya Ekle</h3>
+            <div class="input-container">
+                <input asp-for="@Model.Name" required="" placeholder="Adı" />
 
+            </div>
+            <div class="input-container">
+                <input asp-for="@Model.Status" required="" placeholder="Durum" />
+
+            </div>
+            <div class="input-container">
+                <input asp-for="@Model.Cost" required="" placeholder="Değer" />
+
+            </div>
+
+            <button type="submit" class="btn btn-danger" onclick="showAlert();">Kaydet</button>
+            <button class="btn btn-danger" href="/Home/Index">Ana Sayfa</button>
+        </form>
+    </div>*@
+
+<form ,="" asp-controller="Inventory" asp-action="SaveInventory" method="post" autocomplete="off" class="form">
+    <div class="form-inner">
+        <h2>
+            Eşya Ekle
+        </h2>
+        <div class="input-wrapper">
+            <label>Adı</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Name" required="" placeholder="Adı" />
+            </div>
         </div>
-        <div class="input-container">
-            <input asp-for="@Model.Status" required="" placeholder="Durum" />
-
+        <div class="input-wrapper">
+            <label>Durum</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Status" required="" placeholder="Durum" />
+            </div>
         </div>
-        <div class="input-container">
-            <input asp-for="@Model.Cost" required="" placeholder="Değer" />
-
+        <div class="input-wrapper">
+            <label>Değer</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Cost" required="" placeholder="Değer" />
+            </div>
         </div>
-
-        <button type="submit" class="btn btn-danger" onclick="showAlert();">Kaydet</button>
-        <button class="btn btn-danger" href="/Home/Index">Ana Sayfa</button>
-    </form>
-</div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-danger" onclick="showAlert();">Kaydet</button>
+            <button class="btn btn-danger" href="/Home/Index">Ana Sayfa</button>
+        </div>
+    </div>
+</form>
