@@ -54,13 +54,6 @@ namespace CompanyAuidit.Controllers
             return RedirectToAction(nameof(SaveInventory));
         }
 
-        //public IActionResult InventoryDelete(int id)
-        //{
-        //    var result = _context.Inventories.FirstOrDefault(x => x.Id == id);
-        //    _context.Inventories.Remove(result);
-        //    _context.SaveChanges();
-        //    return RedirectToAction("Index", "Inventory");
-        //}
 
         public IActionResult InventoryList()
         {

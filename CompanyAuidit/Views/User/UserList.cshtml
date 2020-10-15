@@ -26,7 +26,7 @@
     <td>@item.Department</td>
     <td>@item.Mission</td>
     <td>
-        <a class="btn btn-danger" asp-action="UserDelete" asp-route-id="@item.Id">Sil</a>
+        <a class="btn btn-danger" asp-action="UserDelete" asp-route-id="@item.Id" onclick="return confirm('@item.FirstName isimli kullanıcıyı silmek istiyor musunuz?')">Sil</a>
         <a class="btn btn-success" asp-action="UserUpdate" asp-route-id="@item.Id">Güncelle</a>
     </td>
     <td>

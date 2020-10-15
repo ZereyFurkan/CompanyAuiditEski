@@ -23,7 +23,7 @@
             <td>@item.Status</td>
             <td>@item.Cost</td>
             <td>
-                <a class="btn btn-danger" asp-action="InventoryDelete" asp-route-id="@item.Id">Sil</a>
+                <a class="btn btn-danger" asp-action="InventoryDelete" asp-route-id="@item.Id" onclick="return confirm('@item.Name adlı eşyayı silmek istiyor musunuz?')">Sil</a>
                 <a class="btn btn-success" asp-action="UpdateInventory" asp-route-id="@item.Id">Güncelle</a>
             </td>
             <td>

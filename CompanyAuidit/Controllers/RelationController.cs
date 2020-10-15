@@ -47,9 +47,9 @@ namespace CompanyAuidit.Controllers
             return View(model);
         }
 
-        public IActionResult InventoryDelete(int userId, int inventoriyId)
+        public IActionResult InventoryDelete(int userId, int inventoryId)
         {
-            var result = _context.UserAndInventoriyRelationship.FirstOrDefault(x => x.UserId == userId && x.InventoriyId == inventoriyId);
+            var result = _context.UserAndInventoriyRelationship.FirstOrDefault(x => x.UserId == userId && x.InventoriyId == inventoryId);
             _context.UserAndInventoriyRelationship.Remove(result);
             _context.SaveChanges();
             return RedirectToAction(nameof(Inventory), new {id=userId});
