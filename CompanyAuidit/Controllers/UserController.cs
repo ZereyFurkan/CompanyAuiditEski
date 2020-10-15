@@ -49,6 +49,25 @@ namespace CompanyAuidit.Controllers
             return RedirectToAction(nameof(SaveUser));
         }
 
+        [HttpPost]
+        public IActionResult SaveUser2(UserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = new User()
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Department = model.Department,
+                    Mission = model.Mission
+                };
+
+                _context.Users.Add(user);
+                _context.SaveChanges();
+            }
+            return RedirectToAction(nameof(UserList));
+        }
+
         public IActionResult UserList()
         {
             var result = _context.Users.ToList();

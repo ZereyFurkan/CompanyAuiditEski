@@ -31,8 +31,8 @@
         </div>
        
 
-        <button type="submit" class="btn btn-success">Kaydet</button>
-        <input type="submit" id="send" name="send" value="Kaydet ve Geri Dön" class="btn btn-warning" />
-        <button class="btn btn-danger" href="/Home/Index">Vazgeç</button>
+        <button type="submit" asp-action="SaveUser" class="btn btn-success" onclick="showAlert();">Kaydet</button>
+        <button type="submit"  class="btn btn-primary" onclick="showAlert();">Kaydet ve GeriDön</button>
+        <button class="btn btn-warning" asp-action="UserList" >Vazgeç</button>
     </form>
 </div>

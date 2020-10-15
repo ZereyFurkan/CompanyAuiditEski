@@ -54,6 +54,24 @@ namespace CompanyAuidit.Controllers
             return RedirectToAction(nameof(SaveInventory));
         }
 
+        [HttpPost]
+        public IActionResult SaveInventory2(InventoryViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Inventory inventory = new Inventory()
+                {
+                    Name = model.Name,
+                    Status = model.Status,
+                    Cost = model.Cost
+
+                };
+
+                _context.Inventories.Add(inventory);
+                _context.SaveChanges();
+            }
+            return RedirectToAction(nameof(InventoryList));
+        }
 
         public IActionResult InventoryList()
         {
