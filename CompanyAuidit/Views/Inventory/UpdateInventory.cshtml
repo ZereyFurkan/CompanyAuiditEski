@@ -7,9 +7,9 @@
 <!DOCTYPE html>
 
 
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="~/css/cssroot.css" />
 
-<div class="box">
+<!--<div class="box">
 
 
 
@@ -27,10 +27,40 @@
             <input asp-for="@Model.Cost" required="" placeholder="Değer" />
 
 
-        </div>
+        </div>-->
 
         @*<button type="submit" asp-action="SaveInventory" class="btn btn-success">Kaydet</button>*@
-        <input type="submit" id="send" name="send" value="Kaydet" class="btn btn-primary" />
-        <a class="btn btn-dark" href="/Inventory/InventoryList">Vazgeç</a>
-    </form>
-</div>
+<!--<input type="submit" id="send" name="send" value="Kaydet" class="btn btn-primary" />
+<a class="btn btn-dark" href="/Inventory/InventoryList">Vazgeç</a>
+</form>
+</div>-->
+
+<form ,="" asp-controller="Inventory" asp-action="UpdateInventory" method="post" autocomplete="off" class="form">
+    <div class="form-inner">
+        <h2>
+            Eşya Güncelle
+        </h2>
+        <div class="input-wrapper">
+            <label>Adı</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Name" required="" placeholder="Adı" />
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <label>Durum</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Status" required="" placeholder="Durum" />
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <label>Değer</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Cost" required="" placeholder="Değer" />
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-success" onclick="showAlert();">Kaydet ve Geri Dön</button>
+            <a class="btn btn-dark" href="/Inventory/InventoryList">Vazgeç</a>
+        </div>
+    </div>
+</form>

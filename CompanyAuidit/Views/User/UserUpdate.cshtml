@@ -7,9 +7,9 @@
 <!DOCTYPE html>
 
 
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="~/css/cssroot.css" />
 
-<div class="box">
+<!--<div class="box">
 
 
 
@@ -28,11 +28,48 @@
         </div>
         <div class="input-container">
             <input asp-for="@Model.Mission" required="" placeholder="Görevi" />
-        </div>
+        </div>-->
        
 
         @*<button type="submit" asp-action="SaveUser" class="btn btn-success" onclick="showAlert();">Kaydet</button>*@
-        <button type="submit"  class="btn btn-primary" onclick="showAlert();">Kaydet</button>
+        <!--<button type="submit"  class="btn btn-primary" onclick="showAlert();">Kaydet</button>
         <a class="btn btn-dark" href="/User/UserList">Vazgeç</a>
     </form>
-</div>
+</div>-->
+
+<form ,="" asp-controller="User" asp-action="UserUpdate" method="post" autocomplete="off" class="form">
+    <div class="form-inner">
+        <h2>
+            Kullanıcı Güncelle
+        </h2>
+        <div class="input-wrapper">
+            <label>İsim</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.FirstName" required="" placeholder="Adı" />
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <label>Soyisim</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.LastName" required="" placeholder="Soyadı" />
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <label>Birim</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Department" required="" placeholder="Birim" />
+            </div>
+        </div>
+        <div class="input-wrapper">
+            <label>Görev</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Mission" required="" placeholder="Görev" />
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-success" onclick="showAlert();">Kaydet ve Geri Dön</button>
+            
+            <a class="btn btn-dark" href="/User/UserList">Vazgeç</a>
+        </div>
+    </div>
+</form>
