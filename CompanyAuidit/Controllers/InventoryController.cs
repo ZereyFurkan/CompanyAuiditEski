@@ -49,8 +49,9 @@ namespace CompanyAuidit.Controllers
                 };
 
                 _context.Inventories.Add(inventory);
-                _context.SaveChanges();
+                
             }
+            _context.SaveChanges();
             return RedirectToAction(nameof(SaveInventory));
         }
 

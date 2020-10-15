@@ -67,8 +67,8 @@
         </div>
         <div class="btn-group">
             <button type="submit" asp-action="SaveInventory" class="btn btn-success">Kaydet</button>
-            <input type="submit" id="send" asp-action="SaveInventory2" name="send" value="Kaydet ve Geri Dön" class="btn btn-primary" />
-            <button class="btn btn-warning" asp-action="InventoryList">Vazgeç</button>
+            <button type="submit" asp-action="SaveInventory2" class="btn btn-primary" onclick="showAlert();">Kaydet ve GeriDön</button>
+            <a class="btn btn-dark" href="/Inventory/InventoryList">Vazgeç</a>
         </div>
     </div>
 </form>

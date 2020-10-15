@@ -72,7 +72,7 @@
         <div class="input-wrapper">
             <label>LastName</label>
             <div class="input-group">
-                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.LastName" required="" placeholder="Soyisim" />
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.LastName" required=""  placeholder="Soyisim" />
             </div>
         </div>
         <div class="input-wrapper">
@@ -84,13 +84,13 @@
         <div class="input-wrapper">
             <label>Mission</label>
             <div class="input-group">
-                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Mission" required="" placeholder="Görev" />
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Mission" required=""  placeholder="Görev" />
             </div>
         </div>
         <div class="btn-group">
             <button type="submit" class="btn btn-success" onclick="showAlert();">Kaydet</button>
             <button type="submit" asp-action="SaveUser2" class="btn btn-primary" onclick="showAlert();">Kaydet ve GeriDön</button>
-            <button class="btn btn-warning" asp-action="UserList" >Vazgeç</button>
+            <a class="btn btn-dark" href="/User/UserList">Vazgeç</a>
         </div>
     </div>
 </form>
