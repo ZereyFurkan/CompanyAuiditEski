@@ -88,8 +88,9 @@
             </div>
         </div>
         <div class="btn-group">
-            <button type="submit" class="btn btn-danger" onclick="showAlert();">Kaydet</button>
-            <button class="btn btn-danger" href="/Home/Index">Ana Sayfa</button>
+            <button type="submit" class="btn btn-success" onclick="showAlert();">Kaydet</button>
+            <button type="submit" asp-action="SaveUser2" class="btn btn-primary" onclick="showAlert();">Kaydet ve GeriDön</button>
+            <button class="btn btn-warning" asp-action="UserList" >Vazgeç</button>
         </div>
     </div>
 </form>
