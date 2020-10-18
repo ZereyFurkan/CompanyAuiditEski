@@ -63,5 +63,13 @@ namespace CompanyAuidit.Controllers
             return RedirectToAction(nameof(Inventory), new { id = userId });
         }
 
+        public IActionResult CreateUser(int userId, int itemId)
+        {
+            var result = new UserAndInventoriyRelationship { UserId = userId, InventoriyId = itemId };
+            _context.UserAndInventoriyRelationship.Add(result);
+            _context.SaveChanges();
+            return RedirectToAction("InventoryList","Inventory");
+        }
+
     }
 }

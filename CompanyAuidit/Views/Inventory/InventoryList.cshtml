@@ -14,6 +14,7 @@
         <th>Değeri</th>
         <th><a class="btn btn-success" asp-controller="Inventory" asp-action="SaveInventory">Eşya Ekle</a></th>
         <th></th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model.Inventory)
@@ -34,8 +35,36 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         @foreach (var usr in Model.Users)
                         {
-                            <a class="dropdown-item" asp-controller="Relation" asp-action="CreateItem" asp-route-userId="@usr.Id" asp-route-itemId="@item.Id">@usr.FirstName @usr.LastName</a>
+                            <a class="dropdown-item" id="deneme" asp-controller="Relation" asp-action="CreateUser" asp-route-userId="@usr.Id" asp-route-itemId="@item.Id">@usr.FirstName @usr.LastName</a>
                         }
+
+                    </div>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Kişi Listesi</button>
+                <div class="modal" id="modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title">İlişkilendirme</h2>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="dropdown">
+                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Kullanıcılar
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        @foreach (var usr in Model.Users)
+                                        {
+                                            <a class="dropdown-item"  asp-controller="Relation" asp-action="CreateUser" asp-route-userId="@usr.Id" asp-route-itemId="@item.Id" onclick="return confirm('@usr.FirstName @usr.LastName isimli kullanıcıya @item.Name eşya eklensin mi?')">@usr.FirstName @usr.LastName</a>
+                                        }
+
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </td>
@@ -43,3 +72,7 @@
     }
 
 </table>
+
+<script>
+   
+</script>
