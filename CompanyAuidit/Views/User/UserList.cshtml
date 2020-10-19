@@ -1,13 +1,19 @@
-﻿@model IEnumerable<CompanyAuidit.Entities.User>
+﻿@using CompanyAuidit.Entities
+@model IEnumerable<CompanyAuidit.Entities.User>
 @{
     ViewData["Title"] = "RelationIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
+    var userMessage = (string) TempData["UserMessage"];
 }
 
 <h3>Kullanıcı Listesi</h3>
 
-
+@if (userMessage != null)
+{
+    <div class="alert alert-info" role="alert">
+        @userMessage 
+    </div>
+}
 <table class="table">
     <tr>
         <th>Adı</th>

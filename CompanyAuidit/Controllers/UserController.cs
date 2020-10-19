@@ -104,7 +104,7 @@ namespace CompanyAuidit.Controllers
                     Mission = model.Mission
 
                 };
-
+                TempData["UserMessage"] = @$"Kullanıcı {user.FirstName} {user.LastName} güncellendi";
                 _context.Users.Update(user);
                 _context.SaveChanges();
             }

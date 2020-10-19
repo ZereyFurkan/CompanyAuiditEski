@@ -116,7 +116,7 @@ namespace CompanyAuidit.Controllers
                     Id = model.Id
 
                 };
-
+                TempData["InventoryMessage"] = @$"Eşya {inventory.Name} güncellendi";
                 _context.Inventories.Update
                     (inventory);
                 _context.SaveChanges();

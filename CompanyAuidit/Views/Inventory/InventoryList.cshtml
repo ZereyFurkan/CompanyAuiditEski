@@ -2,11 +2,17 @@
 @{
     ViewData["Title"] = "RelationIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
+    var inventoryMessage = (string)TempData["InventoryMessage"];
 }
 
 <h3>Envanter Listesi</h3>
 
+@if (inventoryMessage != null)
+{
+    <div class="alert alert-info" role="alert">
+        @inventoryMessage
+    </div>
+}
 <table class="table">
     <tr>
         <th>Adı</th>
@@ -57,7 +63,7 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         @foreach (var usr in Model.Users)
                                         {
-                                            <a class="dropdown-item"  asp-controller="Relation" asp-action="CreateUser" asp-route-userId="@usr.Id" asp-route-itemId="@item.Id" onclick="return confirm('@usr.FirstName @usr.LastName isimli kullanıcıya @item.Name eşya eklensin mi?')">@usr.FirstName @usr.LastName</a>
+                                            <a class="dropdown-item" asp-controller="Relation" asp-action="CreateUser" asp-route-userId="@usr.Id" asp-route-itemId="@item.Id" onclick="return confirm('@usr.FirstName @usr.LastName isimli kullanıcıya @item.Name eşya eklensin mi?')">@usr.FirstName @usr.LastName</a>
                                         }
 
                                     </div>
@@ -74,5 +80,5 @@
 </table>
 
 <script>
-   
+
 </script>
