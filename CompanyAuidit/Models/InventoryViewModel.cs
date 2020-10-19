@@ -11,5 +11,6 @@ namespace CompanyAuidit.Models
         public string Name { get; set; }
         public string Status { get; set; }
         public decimal Cost { get; set; }
+        public int StockAmount { get; set; }
     }
 }

@@ -65,6 +65,12 @@
                 <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input asp-for="@Model.Cost" required="" placeholder="Değer" />
             </div>
         </div>
+        <div class="input-wrapper">
+            <label>Stok Adedi</label>
+            <div class="input-group">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"></path></svg></span><input type="number" asp-for="@Model.StockAmount" required="" placeholder="Stok Adedi" />
+            </div>
+        </div>
         <div class="btn-group">
             <button type="submit" asp-action="SaveInventory" class="btn btn-success">Kaydet</button>
             <button type="submit" asp-action="SaveInventory2" class="btn btn-primary" onclick="showAlert();">Kaydet ve GeriDön</button>
