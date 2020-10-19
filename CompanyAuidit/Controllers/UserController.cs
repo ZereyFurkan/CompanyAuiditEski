@@ -108,7 +108,7 @@ namespace CompanyAuidit.Controllers
                 _context.Users.Update(user);
                 _context.SaveChanges();
             }
-            //return View();
+
             return RedirectToAction(nameof(UserList));
         }
 
